@@ -1,4 +1,5 @@
  const products = [
+  {id: 0},
   {
     id: 1,
     name: 'Краска Wallquest, Brownsone MS90101',
