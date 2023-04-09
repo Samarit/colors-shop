@@ -1,0 +1,39 @@
+@use '_variables.sass' as var
+  
+header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  .navbar-toggle
+    @include var.media(tablet)
+      display: none
+
+  nav
+    display: none
+    @include var.media(tablet)
+      display: flex
+
+  .navbar-call
+    display: none
+    @include var.media(desktop)
+     display: flex
+     flex-direction: column
+
+
+  .navbar-toolbar
+    display: flex
+    border: 1px solid green
+
+    .icon
+      width: 1rem
+      height: 1rem
+      border: 1px solid red
+
+    .icon:not(.basket)
+      display: none
+      @include var.media(tablet)
+       display: block
+
+    
+      

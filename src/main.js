@@ -1,5 +1,5 @@
 import ProductsPage from "./components/products/ProductsPage";
-import './components/navbar/navbar.sass'
+import './styles/index.sass'
 
 // ===Initialization of Products component===
 const $products = document.getElementById('products')
