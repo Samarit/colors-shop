@@ -1,4 +1,5 @@
 import ProductsPage from "./components/products/ProductsPage";
+import './components/navbar/navbar.sass'
 
 // ===Initialization of Products component===
 const $products = document.getElementById('products')
@@ -27,9 +28,6 @@ $filters.forEach($filter => {
     if (e.target.checked) {
       productsPage.filters.add(e.target.value)
     } else productsPage.filters.delete(e.target.value)
-
-    console.log(e.target.value, e.target.checked);
-    productsPage.filters
 
     productsPage.filter()
   }

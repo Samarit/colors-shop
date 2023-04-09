@@ -1,21 +1,25 @@
 import filterProducts from '../../utils/filterProducts'
 import sortProducts from '../../utils/sortProducts'
+import productTemplate from './ProductTemplate'
 import productsData from '/src/data/products.js'
 
 export default class ProductsPage {
+  // ==STATES==
   allProducts = productsData // Array with all products data
   currentProducts = productsData // Rendering data
   
   element = null // DOM element where products render to
 
-  order = '' // sorting order
-  filters = new Set // collection of filters tags
+  order = '' // sorting order state
+  filters = new Set // collection of filters tags 
 
   // Init render
   init(element) {
+
     if (!element.isConnected) {
       throw new Error('Provided element is not a valid DOM element')
     }
+
     this.element = element
     this.render()
   }
@@ -37,14 +41,7 @@ export default class ProductsPage {
   render() {
     this.clear()
 
-    this.currentProducts.forEach( ({name, price}) => {
-      this.element.innerHTML += `
-      <li>
-        <img alt="img" />
-        <p>${name}</p>
-        <span>${price}</span>
-      </li>
-      `
-    })
+    //Add product as string of html
+    this.currentProducts.forEach( product => this.element.innerHTML += productTemplate(product)) 
   }
 }
