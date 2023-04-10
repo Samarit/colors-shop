@@ -1,39 +1,74 @@
 @use '_variables.sass' as var
-  
+
 header
   display: flex
   flex-direction: row
   justify-content: space-between
+  align-items: center
+  height: 4rem
+  padding: 1.5rem
+  @include var.media(desktop)
+    height: 6.5rem
+    padding: 2.5rem 4rem
 
-  .navbar-toggle
+  button.navbar-toggle
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    width: 1.5rem
+    gap: 4px
+    border: none
+    padding: 0
     @include var.media(tablet)
       display: none
 
+    span
+      display: block
+      width: 100%
+      height: 2px
+      background-color: var.$color-text
+
+  .navbar-logo
+    font-family: TTHoves-Medium
+    font-size: 1.375rem
+    display: flex
+    @include var.media(desktop)
+      font-size: 2rem
+
+    span
+      font-size: 2rem
+      line-height: 0.2
+      @include var.media(desktop)
+        font-size: 2.5rem
+
   nav
     display: none
+    gap: 1.5rem
     @include var.media(tablet)
       display: flex
+
+    a
+      font-size: 14px
 
   .navbar-call
     display: none
     @include var.media(desktop)
-     display: flex
-     flex-direction: column
+      display: flex
+      flex-direction: column
 
+      .callback
+        opacity: 30%
 
   .navbar-toolbar
     display: flex
     border: 1px solid green
 
     .icon
-      width: 1rem
-      height: 1rem
+      width: 1.5rem
+      height: 1.5rem
       border: 1px solid red
 
     .icon:not(.basket)
       display: none
       @include var.media(tablet)
-       display: block
-
-    
-      
+        display: block

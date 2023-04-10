@@ -1,6 +1,6 @@
 export default function productTemplate({name, price, img}) {
   return `
-    <li>
+    <li class="card">
       <img alt="img" />
       <p>${name}</p>
       <span>${price}</span>

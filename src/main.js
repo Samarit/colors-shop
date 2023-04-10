@@ -12,7 +12,7 @@ try {
 }
 
 // Sort select handler
-const $selectSort = document .getElementById('sort')
+const $selectSort = document.getElementById('sort')
 $selectSort.onchange = (e) => {
   e.preventDefault()
   productsPage.order = e.target.value
@@ -21,7 +21,7 @@ $selectSort.onchange = (e) => {
 
 
 // Filters handler
-const $filters = document.querySelectorAll('.filters > input[type="checkbox"]')
+const $filters = document.querySelectorAll('.products-filters > input[type="checkbox"]')
 $filters.forEach($filter => {
   $filter.onchange = e => {
     e.preventDefault()

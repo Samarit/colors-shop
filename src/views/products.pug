@@ -1,22 +1,31 @@
 section.products-container 
-  select#sort(name="sort") 
-    option(value="expensive") Сначала дорогие 
-    option(value="cheap") Сначала дешевые
 
-  div.filters
-    input(type="checkbox" value="new" name="new" id="new")
-    label(for="new") НОВИНКИ
+  div.filters-wrapper
+    div.products-filters
+      input(type="checkbox" value="new" name="new" id="new")
+      label(for="new") НОВИНКИ
 
-    input(type="checkbox" value="available" name="available" id="available")
-    label(for="available") ЕСТЬ В НАЛИЧИИ
+      input(type="checkbox" value="available" name="available" id="available")
+      label(for="available") ЕСТЬ В НАЛИЧИИ
 
-    input(type="checkbox" value="contracted" name="contracted" id="contracted")
-    label(for="contracted") КОНТРАКТНЫЕ
+      input(type="checkbox" value="contracted" name="contracted" id="contracted")
+      label(for="contracted") КОНТРАКТНЫЕ
 
-    input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
-    label(for="exclusive") ЭКСКЛЮЗИВНЫЕ
+      input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
+      label(for="exclusive") ЭКСКЛЮЗИВНЫЕ
 
-    input(type="checkbox" value="sale" name="sale" id="sale")
-    label(for="sale") РАСПРОДАЖА
+      input(type="checkbox" value="sale" name="sale" id="sale")
+      label(for="sale") РАСПРОДАЖА
 
-  ul.products#products
+  div.wrapper
+    div.products-header
+
+      div.filters-toggle ФИЛЬТРЫ
+
+      div.products-total 412 ТОВАРОВ
+
+      select.products-sort#sort(name="sort") 
+        option(value="expensive") Сначала дорогие 
+        option(value="cheap") Сначала дешевые
+
+    ul.products-cards#products

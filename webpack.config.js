@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'public'),
+    assetModuleFilename: 'assets/[contenthash][ext][query]',
     clean: true
   },
   target: 'web',
@@ -48,6 +49,20 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[hash][ext]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext]'
+        }
       },
     ],
   }
