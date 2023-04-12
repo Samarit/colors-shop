@@ -1,31 +1,50 @@
 section.products-container 
 
-  div.filters-wrapper
-    div.products-filters
-      input(type="checkbox" value="new" name="new" id="new")
-      label(for="new") НОВИНКИ
+  div.filter-wrapper
+    div.products-filter#filter
 
-      input(type="checkbox" value="available" name="available" id="available")
-      label(for="available") ЕСТЬ В НАЛИЧИИ
+        label(for="new")
+          input(type="checkbox" value="new" name="new" id="new")
+          span.switcher
+          span.text НОВИНКИ
 
-      input(type="checkbox" value="contracted" name="contracted" id="contracted")
-      label(for="contracted") КОНТРАКТНЫЕ
+        label(for="available") 
+          input(type="checkbox" value="available" name="available" id="available")
+          span.switcher
+          span.text ЕСТЬ В НАЛИЧИИ
 
-      input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
-      label(for="exclusive") ЭКСКЛЮЗИВНЫЕ
+        label(for="contracted") 
+          input(type="checkbox" value="contracted" name="contracted" id="contracted")
+          span.switcher
+          span.text КОНТРАКТНЫЕ
 
-      input(type="checkbox" value="sale" name="sale" id="sale")
-      label(for="sale") РАСПРОДАЖА
+        label(for="exclusive") 
+          input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
+          span.switcher
+          span.text ЭКСКЛЮЗИВНЫЕ
 
-  div.wrapper
+        label(for="sale") 
+          input(type="checkbox" value="sale" name="sale" id="sale")
+          span.switcher
+          span.text РАСПРОДАЖА
+
+  div.products-wrapper
     div.products-header
 
-      div.filters-toggle ФИЛЬТРЫ
+      div.filter-toggle#filter-toggle ФИЛЬТРЫ
 
       div.products-total 412 ТОВАРОВ
 
-      select.products-sort#sort(name="sort") 
-        option(value="expensive") Сначала дорогие 
-        option(value="cheap") Сначала дешевые
+      div.products-sort
+
+        div.select-input
+          span.text СНАЧАЛА ДОРОГИЕ
+          div.select-dropdown
+            div.select-dropdown__option(data-value="expensive") СНАЧАЛА ДОРОГИЕ
+            div.select-dropdown__option(data-value="cheap") СНАЧАЛА НЕДОРОГИЕ
+            div.select-dropdown__option(data-value="popular") СНАЧАЛА ПОПУЛЯРНЫЕ
+            div.select-dropdown__option(data-value="new") СНАЧАЛА НОВЫЕ
+            
+        div.select-shadow 
 
     ul.products-cards#products

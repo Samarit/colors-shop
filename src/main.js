@@ -1,9 +1,11 @@
 import ProductsPage from "./components/products/ProductsPage";
+import './components/select/select.js'
 import './styles/index.sass'
 
-// ===Initialization of Products component===
+// ===Initialization of Products view component===
 const $products = document.getElementById('products')
-const productsPage = new ProductsPage($products)
+export const productsPage = new ProductsPage($products)
+
 
 try {
   productsPage.init($products)
@@ -11,23 +13,24 @@ try {
   console.error(error.message)
 }
 
-// Sort select handler
-const $selectSort = document.getElementById('sort')
-$selectSort.onchange = (e) => {
-  e.preventDefault()
-  productsPage.order = e.target.value
-  productsPage.sort()
-}
 
 
-// Filters handler
-const $filters = document.querySelectorAll('.products-filters > input[type="checkbox"]')
-$filters.forEach($filter => {
-  $filter.onchange = e => {
+// Filter handlers
+const $filter = document.getElementById('filter')
+const $filterWrapper = document.querySelector('.filter-wrapper')
+const $filterToggle = document.getElementById('filter-toggle')
+const $filterInputs = document.querySelectorAll('#filter input[type="checkbox"]')
+
+$filter.onclick = e => e.stopPropagation() 
+$filterToggle.onclick = () => $filterWrapper.classList.add('show')
+$filterWrapper.onclick = () => $filterWrapper.classList.remove('show')
+
+$filterInputs.forEach( filter => {
+  filter.onchange = e => {
     e.preventDefault()
     if (e.target.checked) {
-      productsPage.filters.add(e.target.value)
-    } else productsPage.filters.delete(e.target.value)
+      productsPage.filters.add( e.target.value )
+    } else productsPage.filters.delete( e.target.value )
 
     productsPage.filter()
   }

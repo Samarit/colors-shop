@@ -1,0 +1,45 @@
+@use '_variables.sass' as var
+
+.select-input
+  position: relative
+
+  & .text
+    margin-right: 7px
+
+  &::after
+    content: "▼"
+    display: inline-block
+    font-size: 75%
+    transform: translateY(-1.5px)
+
+  .select-dropdown
+    display: none
+
+    &__option
+      color: var.$color-text
+      width: 280px
+      padding: 1rem 1.5rem
+
+.select-input.open
+  .select-dropdown
+    display: flex
+    flex-direction: column
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 200
+
+    &__option
+      background-color: white
+
+      &:hover
+        background-color: var.$color-active
+
+.select-input.open + .select-shadow
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 100

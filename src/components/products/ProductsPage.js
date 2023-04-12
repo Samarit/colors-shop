@@ -1,17 +1,18 @@
 import filterProducts from '../../utils/filterProducts'
 import sortProducts from '../../utils/sortProducts'
-import productTemplate from './ProductTemplate'
+import productTemplate from './productTemplate'
 import productsData from '/src/data/products.js'
 
 export default class ProductsPage {
-  // ==STATES==
-  allProducts = productsData // Array with all products data
-  currentProducts = productsData // Rendering data
-  
-  element = null // DOM element where products render to
+  constructor() {
+    this.allProducts = productsData // Array with all products data
+    this.currentProducts = productsData // Rendering data
+    
+    this.element = null // DOM element where products render to
 
-  order = '' // sorting order state
-  filters = new Set // collection of filters tags 
+    this.order = '' // sorting order state
+    this.filters = new Set // collection of filters tags 
+  }
 
   // Init render
   init(element) {
@@ -45,3 +46,4 @@ export default class ProductsPage {
     this.currentProducts.forEach( product => this.element.innerHTML += productTemplate(product)) 
   }
 }
+

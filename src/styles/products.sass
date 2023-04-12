@@ -1,10 +1,11 @@
 @use '_variables.sass' as var
+@import 'select.sass'
 
 .products-container
   display: flex
   padding: 0 1.5rem
 
-  .filters-wrapper
+  .filter-wrapper
     display: none
     background-color: rgba(0, 0, 0, 0.5)
     position: fixed
@@ -19,22 +20,87 @@
       width: 15.625%
       background-color: white
 
-    .products-filters
+    #filter
       position: absolute
       bottom: 300px
       display: flex
       flex-direction: column
+      gap: 10px
       @include var.media(desktop)
         position: static
 
-  .wrapper
+      label
+        position: relative
+        display: flex
+        align-items: center
+
+        .text
+          font-size: 0.75rem
+
+        input[type="checkbox"]
+          opacity: 0
+          width: 0
+          height: 0
+
+          &:checked + .switcher
+            background-color: var.$color-active
+
+          &:checked + .switcher::before
+            right: 0px
+            left: auto
+
+        .switcher
+          min-width: 2.25rem
+          height: 1.375rem
+          margin-right: 0.75rem
+          position: relative
+          background-color: var.$color-inactive
+          border-radius: 40px
+
+          &::before
+            content: ''
+            background-color: var.$color-text
+            border-radius: 50%
+            width: 8px
+            height: 8px
+            position: absolute
+            left: 0px
+            margin: 7px
+
+  //Show filter on mobile
+  .filter-wrapper.show
+    display: flex
+
+    #filter
+      background-color: white
+      bottom: 0
+      left: 0
+      right: 0
+      height: 320px
+      border-radius: 24px 24px 0 0
+      padding: 0 1.5rem
+
+      &::before
+        content: ''
+        display: block
+        width: 1.75rem
+        border: 2px solid var.$color-text
+        margin: 0.75rem auto 2.25rem
+        @include var.media(desktop)
+          display: none
+
+  .products-wrapper
     flex-grow: 1
+
     .products-header
       display: flex
       justify-content: space-between
       font-size: 0.75rem
+      margin-bottom: 12px
+      @include var.media(desktop)
+        margin-bottom: 44px
 
-      .filters-toggle
+      .filter-toggle
         display: flex
         justify-content: center
         align-items: center
@@ -59,9 +125,12 @@
       grid-template-columns: repeat(auto-fill, 156px)
       grid-gap: 15px
       justify-content: space-between
+      @include var.media(tablet)
+        grid-template-columns: repeat(auto-fill, 216px)
+      @include var.media(desktop)
+        grid-template-columns: repeat(auto-fill, 276px)
 
       .card
-        height: 300px
         border-bottom: 1px solid rgba(0,0,0, 0.1)
         padding-bottom: 34px
 
@@ -69,3 +138,29 @@
           display: block
           width: 100%
           aspect-ratio: 1 / 1
+
+        .price-bar
+          display: flex
+          justify-content: space-between
+          align-items: center
+          width: 100%
+
+          .price-value
+            font-weight: 600
+
+            &::after
+              content: " ₽"
+
+          .add
+            opacity: 0
+            appearance: none
+            border: none
+            background-color: var.$color-active
+            border-radius: 8px
+            width: 5rem
+            aspect-ratio: 2.5
+            font-size: 1.5rem
+
+      .card:hover
+        .add
+          opacity: 1

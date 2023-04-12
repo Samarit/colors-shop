@@ -13,6 +13,14 @@ export default function sortProducts() {
     
     case 'cheap':
       currentProducts.sort((a, b) => a.price - b.price)
+      break;
+
+    case 'new':
+      currentProducts.sort((a, b) => {
+        console.log(a.tags)
+        if (a.tags.includes('new') || !b.tags.includes('new')) return -1
+        return 1
+      })
     default:
       break;
   }
