@@ -1,6 +1,6 @@
 import filterProducts from '../../utils/filterProducts'
 import sortProducts from '../../utils/sortProducts'
-import productTemplate from './productTemplate'
+import productCardTemplate from './productCardTemplate'
 import productsData from '/src/data/products.js'
 
 export default class ProductsPage {
@@ -43,7 +43,7 @@ export default class ProductsPage {
     this.clear()
 
     //Add product as string of html
-    this.currentProducts.forEach( product => this.element.innerHTML += productTemplate(product)) 
+    this.currentProducts.forEach( product => this.element.appendChild(productCardTemplate(product))) 
   }
 }
 

@@ -19,6 +19,7 @@
       flex-direction: column
       width: 15.625%
       background-color: white
+      min-width: 200px
 
     #filter
       position: absolute
@@ -124,7 +125,7 @@
       display: grid
       grid-template-columns: repeat(auto-fill, 156px)
       grid-gap: 15px
-      justify-content: space-between
+      justify-content: space-around
       @include var.media(tablet)
         grid-template-columns: repeat(auto-fill, 216px)
       @include var.media(desktop)

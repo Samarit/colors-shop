@@ -1,5 +1,7 @@
 import ProductsPage from "./components/products/ProductsPage";
 import './components/select/select.js'
+import './components/slider/slider.js'
+import './components/basket/basket.js'
 import './styles/index.sass'
 
 // ===Initialization of Products view component===
