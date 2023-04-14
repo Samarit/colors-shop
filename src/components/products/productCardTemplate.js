@@ -24,6 +24,7 @@ export default function productCardTemplate(product) {
   $priceValue.innerText = price
 
   const $buttonAdd = document.createElement('button')
+  $buttonAdd.textContent = "+"
   $buttonAdd.classList.add('add')
 
   $buttonAdd.onclick = () => addToBasket(product)

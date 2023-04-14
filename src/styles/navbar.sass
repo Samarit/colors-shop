@@ -5,12 +5,12 @@ header
   flex-direction: row
   justify-content: space-between
   align-items: center
-  gap: 5%
+  gap: calc( 1rem + 1vw )
   height: 4rem
   padding: 1.5rem
   @include var.media(desktop)
     height: 6.5rem
-    padding: 2.5rem 4rem
+    padding: 2.5rem calc( 0.5rem + 3vw )
 
   button.navbar-toggle
     display: flex
@@ -44,7 +44,7 @@ header
 
   nav
     display: none
-    gap: 1.5rem
+    gap: calc( 0.5rem + 1vw )
     flex-grow: 1
     @include var.media(tablet)
       display: flex
@@ -63,7 +63,7 @@ header
 
   .navbar-toolbar
     display: flex
-    gap: 2rem
+    gap: calc( 0.25rem + 1.5vw )
 
     .icon
       width: 1.5rem

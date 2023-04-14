@@ -36,14 +36,18 @@ export default function modalCreate(buttons = []) {
   const $modalContainer = $modal.querySelector('.modal-container')
   $modalContainer.insertAdjacentElement('beforeend', $footer)
 
+  const $modalWrapper = $modal.querySelector('.modal-wrapper')
+
   document.body.append($modal)
 
   return {
     open() {
       $modal.classList.add('open')
+      $modalWrapper.addEventListener('click', decline)
     },
     close() {
         $modal.classList.remove('open')
+        $modalWrapper.removeEventListener('click', decline)
         $modal.remove()
     }
 }

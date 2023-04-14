@@ -3,7 +3,7 @@
 
 .products-container
   display: flex
-  padding: 0 1.5rem
+  padding: 4.5rem 1.5rem
 
   .filter-wrapper
     display: none
@@ -123,17 +123,17 @@
 
     .products-cards
       display: grid
-      grid-template-columns: repeat(auto-fill, 156px)
+      grid-template-columns: repeat(auto-fill, calc( 7.5rem + 8.25vw ))
       grid-gap: 15px
       justify-content: space-around
-      @include var.media(tablet)
-        grid-template-columns: repeat(auto-fill, 216px)
-      @include var.media(desktop)
-        grid-template-columns: repeat(auto-fill, 276px)
 
       .card
+        display: flex
+        flex-direction: column
+        justify-content: space-between
         border-bottom: 1px solid rgba(0,0,0, 0.1)
         padding-bottom: 34px
+        gap: 1rem
 
         img
           display: block

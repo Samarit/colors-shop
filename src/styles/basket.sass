@@ -1,3 +1,5 @@
+@use '_variables.sass' as var
+
 .basket-wrapper
   display: none
   position: fixed
@@ -14,11 +16,16 @@
     flex-direction: column
     justify-content: space-between
     background-color: white
-    padding: 2.5rem
+    padding: 1.5rem
+    min-width: 320px
+    width: calc( 240px + 20vw )
+    @include var.media(desktop)
+      padding: 2.5rem
 
     .basket-header
       display: flex
       justify-content: space-between
+      margin-bottom: calc( 1.5rem + 5vw )
 
       .basket-title
         font-weight: 600
@@ -28,9 +35,14 @@
 
       .basket-close
         border: 1px solid rgba(0, 0, 0, .1)
-        width: 3rem
-        height: 3rem
+        width: 1.5rem
+        aspect-ratio: 1
         border-radius: 50%
+        font-size: 2rem
+        @include var.media(tablet)
+          width: 2rem
+        @include var.media(desktop)
+          width: 3rem
 
     .basket-quantity
       display: flex
@@ -44,6 +56,8 @@
 
       .basket-clear
         opacity: 40%
+        appearance: none
+        border: none
 
     #basket
       display: flex
@@ -52,12 +66,83 @@
 
       .card
         display: flex
+        align-items: center
         border-top: 1px solid rgba(0, 0, 0, .1)
         padding: 0.75rem 0
 
         img
-          width: 6rem
+          width: calc( 3rem + 3vw )
           aspect-ratio: 1
+
+        .product-info
+          display: flex
+          flex-direction: column
+          align-items: flex-start
+          justify-content: space-around
+          gap: calc(0.5rem + 1vw)
+          padding: 0.5rem
+          font-size: 0.75rem
+          @include var.media(tablet)
+            font-size: 1rem
+
+          .price-value
+            font-weight: 600
+
+            &::after
+              content: " ₽"
+
+        .product-counter
+          display: flex
+          justify-content: space-between
+          align-items: center
+
+          button, span
+            width: calc(1rem + 2vw)
+            aspect-ratio: 1.67rem
+
+          button
+            font-size: 1.5rem
+
+          span
+            text-align: center
+
+        .basket-button__delete
+          border-radius: 50%
+          width: calc( 2rem + 2vw )
+          aspect-ratio: 1
+          font-size: 1.5rem
+          background-color: white
+          margin-left: 5px
+
+  .basket-footer
+    display: flex
+    justify-content: space-between
+
+    .basket-total
+      font-weight: 600
+      font-size: 1.25rem
+      @include var.media(tablet)
+        font-size: 1.875rem
+
+      &::before
+        content: "Итого"
+        display: block
+        font-size: 1rem
+        font-weight: normal
+        margin-bottom: 6px
+
+      &::after
+        content: "₽"
+        font-weight: 600
+        font-size: 1.25rem
+        @include var.media(tablet)
+          font-size: 1.875rem
+
+    .basket-checkout
+      width: calc( 9rem + 4.5vw )
+      font-weight: 600
+      aspect-ratio: 4.25
+      background-color: var.$color-active
 
 .basket-wrapper.open
   display: flex

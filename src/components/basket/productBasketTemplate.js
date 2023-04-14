@@ -27,12 +27,11 @@ export default function productBasketTemplate(product) {
 
   const $buttonDelete = document.createElement('button')
   $buttonDelete.classList.add('basket-button__delete')
+  $buttonDelete.textContent = '×'
   $buttonDelete.onclick = () => modalOpen(id)
   
   $product.append($img, $info, $counterWrapper, $buttonDelete)
   $info.append($name, $priceValue)
-
-  
 
   return $product
 }

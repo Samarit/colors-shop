@@ -10,7 +10,7 @@ export default function renderBasket() {
   const basketStorage = getStorageData()
 
   if (basketStorage.length === 0) {
-    $basket.innerText = 'Товаров нет'
+    $basket.innerText = ''
   } else {
     $basket.innerText = ''
     basketStorage.forEach((el) => $basket.appendChild(productBasketTemplate(el)))

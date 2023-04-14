@@ -1,2 +1,37 @@
+@use '_variables.sass' as var
+
 .swiper
   display: none
+  @include var.media(tablet)
+    display: flex
+
+  &-slide
+    height: 560px
+    background-size: cover !important
+    background-repeat: no-repeat !important
+    flex-direction: column
+    gap: 1.5rem
+    color: white
+
+    .title
+      font-size: 3.75rem
+
+    .text
+      line-height: 1.5
+
+    &:nth-child(1)
+      background-image: url('../assets/images/slide-1.png')
+
+  &-pagination
+    background-color: rgba(0, 0, 0, .4)
+    border-radius: 16px
+    margin: 0 calc( 50% - 64px )
+    width: 128px !important
+    height: 32px
+    bottom: 100px !important
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &-bullet
+      background-color: white

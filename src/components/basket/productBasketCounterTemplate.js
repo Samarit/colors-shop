@@ -49,6 +49,8 @@ export default function productBasketCounterTemplate(product) {
 
   $counterWrapper.append($decrement, $counter, $increment)
 
+  $counterWrapper.classList.add('product-counter')
+
   return $counterWrapper
 
 }

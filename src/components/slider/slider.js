@@ -1,8 +1,8 @@
-import Swiper from "swiper";
-import 'swiper/css';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
-const slider = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper', {
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
   },
 })

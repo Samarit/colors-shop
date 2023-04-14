@@ -1,3 +1,5 @@
+@use '_variables.sass' as var
+
 .modal
   .modal-wrapper
     position: fixed
@@ -10,3 +12,41 @@
     display: flex
     justify-content: center
     align-items: center
+
+    .modal-container
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: center
+      background-color: white
+      padding: 2.25rem
+      border-radius: 16px
+      gap: 1.5rem
+
+      .modal-title
+        font-size: 1.35rem
+        text-align: center
+        @include var.media(tablet)
+          font-size: 2rem
+
+      .modal-text
+        font-size: 1rem
+        text-align: center
+        @include var.media(tablet)
+          font-size: 1.25rem
+
+      .modal-footer
+        display: flex
+        gap: 1rem
+
+        button
+          width: calc( 5rem + 5vw )
+          border-radius: 5px
+          font-size: 1rem
+          font-weight: 600
+          padding: 0.5rem 1rem
+          @include var.media(tablet)
+            font-size: 1.25rem
+
+        .modal-button__confirm
+          background-color: var.$color-active
