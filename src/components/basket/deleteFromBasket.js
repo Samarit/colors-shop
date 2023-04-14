@@ -4,6 +4,7 @@ import renderBasket from "./renderBasket";
 
 export default function deleteFromBasket(id) {
   const basketStorage = getStorageData()
+  console.log('deleted', id)
 
   basketStorage.every((el, index) => {
     if (el.id === id ) {

@@ -18,8 +18,6 @@ export default function productBasketCounterTemplate(product) {
   $decrement.onclick = (e) => {
     $counter.innerText --
     const basketStorage = getStorageData()
-
-    console.log(basketStorage[0].count)
     
     basketStorage.forEach((el) => {
       if (el.id === id) {

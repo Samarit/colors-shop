@@ -1,3 +1,4 @@
+import modalOpen from "../modal/modalOpen"
 import deleteFromBasket from "./deleteFromBasket"
 import productBasketCounterTemplate from "./productBasketCounterTemplate"
 
@@ -26,7 +27,7 @@ export default function productBasketTemplate(product) {
 
   const $buttonDelete = document.createElement('button')
   $buttonDelete.classList.add('basket-button__delete')
-  $buttonDelete.onclick = () => deleteFromBasket(id)
+  $buttonDelete.onclick = () => modalOpen(id)
   
   $product.append($img, $info, $counterWrapper, $buttonDelete)
   $info.append($name, $priceValue)
