@@ -25,6 +25,7 @@
     .basket-header
       display: flex
       justify-content: space-between
+      align-items: center
       margin-bottom: calc( 1.5rem + 5vw )
 
       .basket-title
@@ -34,15 +35,14 @@
         align-items: center
 
       .basket-close
+        display: flex
+        justify-content: center
+        align-items: center
+        width: calc( 1.5rem + 1.25vw )
+        height: calc( 1.5rem + 1.25vw )
         border: 1px solid rgba(0, 0, 0, .1)
-        width: 1.5rem
-        aspect-ratio: 1
         border-radius: 50%
         font-size: 2rem
-        @include var.media(tablet)
-          width: 2rem
-        @include var.media(desktop)
-          width: 3rem
 
     .basket-quantity
       display: flex
@@ -79,10 +79,11 @@
           flex-direction: column
           align-items: flex-start
           justify-content: space-around
-          gap: calc(0.5rem + 1vw)
+          gap: calc(0.5rem + 0.75vw)
           padding: 0.5rem
-          font-size: 0.75rem
-          @include var.media(tablet)
+          font-size: calc( 0.75rem + 0.25vw )
+          @include var.media(desktop)
+            padding: 0.5rem
             font-size: 1rem
 
           .price-value
@@ -96,23 +97,24 @@
           justify-content: space-between
           align-items: center
 
-          button, span
-            width: calc(1rem + 2vw)
-            aspect-ratio: 1.67rem
-
           button
-            font-size: 1.5rem
+            width: calc(1.25rem + 1.2vw)
+            aspect-ratio: 1.67rem
+            font-size: calc( 1rem + 0.25vw )
 
           span
+            width: calc(1.25rem + 1.2vw)
             text-align: center
+            font-weight: 600
+            font-size: calc( 0.75rem + 0.15vw )
 
         .basket-button__delete
           border-radius: 50%
           width: calc( 2rem + 2vw )
-          aspect-ratio: 1
+          height: calc( 2rem + 2vw )
           font-size: 1.5rem
           background-color: white
-          margin-left: 5px
+          margin-left: calc( 0.75rem + 0.15vw )
 
   .basket-footer
     display: flex

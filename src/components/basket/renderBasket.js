@@ -4,7 +4,7 @@ import renderTotal from "./renderTotal";
 
 const $basket = document.getElementById('basket')
 const $basketQuantity = document.querySelector('.basket-quantity .text')
-const $basketOpen = document.querySelector('#basket-open')
+const $basketOpen = document.getElementById('basket_open')
 
 export default function renderBasket() {
   const basketStorage = getStorageData()

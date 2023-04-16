@@ -9,6 +9,7 @@ export default class ProductsPage {
     this.currentProducts = productsData // Rendering data
     
     this.element = null // DOM element where products render to
+    this.listenerRemovers = [] // Array of remove methods of each product card after sort/filter
 
     this.order = '' // sorting order state
     this.filters = new Set // collection of filters tags 
@@ -36,14 +37,24 @@ export default class ProductsPage {
   }
 
   clear() {
+    this.listenerRemovers.map( remover => remover())
     this.element.innerHTML = ''
+    this.listenerRemovers = []
   }
 
   render() {
     this.clear()
 
     //Add product as string of html
-    this.currentProducts.forEach( product => this.element.appendChild(productCardTemplate(product))) 
+    this.currentProducts.forEach( product => {
+
+      const $productCard = productCardTemplate(product).append()
+
+      this.element.appendChild($productCard)
+
+      this.listenerRemovers.push($productCard.remove.bind($productCard))
+    
+    }) 
   }
 }
 

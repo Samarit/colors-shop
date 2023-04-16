@@ -1,14 +1,14 @@
 import { productsPage } from "../../main"
 
-const $selectInput = document.querySelector('.select-input')
-const $selectOptions = document.querySelectorAll('.select-dropdown__option')
-const $selectShadow = document.querySelector('.select-shadow')
-const $selectInputText = $selectInput.querySelector('.text')
+const $selectInput = document.querySelector('.select__input')
+const $selectOptions = document.querySelectorAll('.dropdown__option')
+const $selectOverlay = document.querySelector('.select__overlay')
+const $selectInputText = $selectInput.querySelector('.select__text')
 
 // Sort select handler
 $selectInput.onclick = (e) => {
   e.preventDefault()
-  $selectInput.classList.add('open')
+  $selectInput.classList.add('select__input_opened')
 }
 
 $selectOptions.forEach(option => {
@@ -18,8 +18,8 @@ $selectOptions.forEach(option => {
     productsPage.sort()
 
     $selectInputText.innerText = e.target.innerText
-    $selectInput.classList.remove('open')
+    $selectInput.classList.remove('select__input_opened')
   }
 })
 
-$selectShadow.onclick = () => $selectInput.classList.remove('open')
+$selectOverlay.onclick = () => $selectInput.classList.remove('select__input_opened')

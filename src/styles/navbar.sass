@@ -1,18 +1,18 @@
 @use '_variables.sass' as var
 
-header
+.navbar
   display: flex
   flex-direction: row
   justify-content: space-between
   align-items: center
-  gap: calc( 1rem + 1vw )
+  gap: calc( 0.15rem + 2vw )
   height: 4rem
   padding: 1.5rem
   @include var.media(desktop)
     height: 6.5rem
-    padding: 2.5rem calc( 0.5rem + 3vw )
+    padding: 2.5rem calc( 0.25rem + 3vw )
 
-  button.navbar-toggle
+  .navbar__hamburger
     display: flex
     flex-direction: column
     justify-content: space-around
@@ -23,74 +23,75 @@ header
     @include var.media(tablet)
       display: none
 
-    span
+    span // Hamburger line
       display: block
       width: 100%
       height: 2px
       background-color: var.$color-text
 
-  .navbar-logo
+  .navbar__logo
     font-family: TTHoves-Medium
     font-size: 1.375rem
     display: flex
     @include var.media(desktop)
-      font-size: 2rem
+      font-size: calc( 1.4rem + 0.5vw )
 
-    span
+    span // circle after logo
       font-size: 2rem
       line-height: 0.2
       @include var.media(desktop)
         font-size: 2.5rem
 
-  nav
+  .navbar__menu.menu
     display: none
-    gap: calc( 0.5rem + 1vw )
+    gap: calc( 0.1rem + 1.5vw )
     flex-grow: 1
     @include var.media(tablet)
       display: flex
 
-    a
-      font-size: 14px
+    .menu__link
+      font-size: calc( 0.7rem + 0.15vw )
 
-  .navbar-call
+  .navbar__info
     display: none
+    font-size: calc( 0.7rem + 0.15vw )
+    flex-direction: column
     @include var.media(desktop)
       display: flex
-      flex-direction: column
 
-      .callback
-        opacity: 30%
+    .info__callback
+      opacity: 30%
 
-  .navbar-toolbar
+  .toolbar
     display: flex
-    gap: calc( 0.25rem + 1.5vw )
+    gap: calc( 0.15rem + 1.25vw )
 
-    .icon
+    .toolbar__icon
       width: 1.5rem
       height: 1.5rem
       background-size: 100%
       background-repeat: no-repeat
       background-position: center
 
-      &.search
-        background-image: url('../assets/icons/search.svg')
+    .toolbar__icon_search
+      background-image: url('../assets/icons/search.svg')
 
-      &.profile
-        background-image: url('../assets/icons/profile.svg')
+    .toolbar__icon_profile
+      background-image: url('../assets/icons/profile.svg')
 
-      &.heart
-        background-image: url('../assets/icons/heart.svg')
-        background-size: 90%
+    .toolbar__icon_heart
+      background-image: url('../assets/icons/heart.svg')
+      background-size: 90%
 
-      &.basket
-        border-radius: 50%
-        background-color: var.$color-active
-        display: flex
-        justify-content: center
-        align-items: center
-        font-size: 0.75rem
+    .toolbar__icon_basket
+      border-radius: 50%
+      background-color: var.$color-active
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 0.75rem
 
-    .icon:not(.basket)
+    .toolbar__icon:not(.toolbar__icon_basket)
       display: none
       @include var.media(desktop)
         display: block

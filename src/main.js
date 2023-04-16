@@ -18,14 +18,15 @@ try {
 
 
 // Filter handlers
-const $filter = document.getElementById('filter')
-const $filterWrapper = document.querySelector('.filter-wrapper')
+const $filter = document.querySelector('.filter')
+const $filterWrapper = document.querySelector('.filter__wrapper')
+const $filterContainer = document.querySelector('.filter__container')
 const $filterToggle = document.getElementById('filter-toggle')
-const $filterInputs = document.querySelectorAll('#filter input[type="checkbox"]')
+const $filterInputs = document.querySelectorAll('#filter .filter__input[type="checkbox"]')
 
-$filter.onclick = e => e.stopPropagation() 
-$filterToggle.onclick = () => $filterWrapper.classList.add('show')
-$filterWrapper.onclick = () => $filterWrapper.classList.remove('show')
+$filterContainer.onclick = e => e.stopPropagation() 
+$filterToggle.onclick = () => $filter.classList.add('filter_opened')
+$filterWrapper.onclick = () => $filter.classList.remove('filter_opened')
 
 $filterInputs.forEach( filter => {
   filter.onchange = e => {

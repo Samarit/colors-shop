@@ -1,50 +1,51 @@
-section.products-container 
+section.products 
 
-  div.filter-wrapper
-    div.products-filter#filter
+  div.filter.products__filter
+    div.filter__wrapper
+      div.filter__container#filter
 
-        label(for="new")
-          input(type="checkbox" value="new" name="new" id="new")
-          span.switcher
-          span.text НОВИНКИ
+          label.filter__label(for="new")
+            input.filter__input(type="checkbox" value="new" name="new" id="new")
+            span.filter__switcher
+            span.filter__text НОВИНКИ
 
-        label(for="available") 
-          input(type="checkbox" value="available" name="available" id="available")
-          span.switcher
-          span.text ЕСТЬ В НАЛИЧИИ
+          label.filter__label(for="available") 
+            input.filter__input(type="checkbox" value="available" name="available" id="available")
+            span.filter__switcher
+            span.filter__text ЕСТЬ В НАЛИЧИИ
 
-        label(for="contracted") 
-          input(type="checkbox" value="contracted" name="contracted" id="contracted")
-          span.switcher
-          span.text КОНТРАКТНЫЕ
+          label.filter__label(for="contracted") 
+            input.filter__input(type="checkbox" value="contracted" name="contracted" id="contracted")
+            span.filter__switcher
+            span.filter__text КОНТРАКТНЫЕ
 
-        label(for="exclusive") 
-          input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
-          span.switcher
-          span.text ЭКСКЛЮЗИВНЫЕ
+          label.filter__label(for="exclusive") 
+            input.filter__input(type="checkbox" value="exclusive" name="exclusive" id="exclusive")
+            span.filter__switcher
+            span.filter__text ЭКСКЛЮЗИВНЫЕ
 
-        label(for="sale") 
-          input(type="checkbox" value="sale" name="sale" id="sale")
-          span.switcher
-          span.text РАСПРОДАЖА
+          label.filter__label(for="sale") 
+            input.filter__input(type="checkbox" value="sale" name="sale" id="sale")
+            span.filter__switcher
+            span.filter__text РАСПРОДАЖА
 
-  div.products-wrapper
-    div.products-header
+  div.products__wrapper
+    div.products__header
 
-      div.filter-toggle#filter-toggle ФИЛЬТРЫ
+      div.products__filter-toggle#filter-toggle ФИЛЬТРЫ
 
-      div.products-total 412 ТОВАРОВ
+      div.products__total 412 ТОВАРОВ
 
-      div.products-sort
+      div.select.products__sort
 
-        div.select-input
-          span.text СНАЧАЛА ДОРОГИЕ
-          div.select-dropdown
-            div.select-dropdown__option(data-value="expensive") СНАЧАЛА ДОРОГИЕ
-            div.select-dropdown__option(data-value="cheap") СНАЧАЛА НЕДОРОГИЕ
-            div.select-dropdown__option(data-value="popular") СНАЧАЛА ПОПУЛЯРНЫЕ
-            div.select-dropdown__option(data-value="new") СНАЧАЛА НОВЫЕ
+        div.select__input
+          span.select__text СНАЧАЛА ДОРОГИЕ
+          div.dropdown.select__dropdown
+            div.dropdown__option(data-value="expensive") СНАЧАЛА ДОРОГИЕ
+            div.dropdown__option(data-value="cheap") СНАЧАЛА НЕДОРОГИЕ
+            div.dropdown__option(data-value="popular") СНАЧАЛА ПОПУЛЯРНЫЕ
+            div.dropdown__option(data-value="new") СНАЧАЛА НОВЫЕ
             
-        div.select-shadow 
+        div.select__overlay 
 
-    ul.products-cards#products
+    ul.products__container#products

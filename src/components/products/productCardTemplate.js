@@ -1,36 +1,36 @@
-import getStorageData from "../../utils/getStorageData"
-import updateStorageData from "../../utils/updateStorageData"
 import addToBasket from "./addToBasket"
 
 export default function productCardTemplate(product) {
 
   const {id, name, price} = product
+  const img = require(`../../assets/images/${id}.png`)
   
   const $product = document.createElement('li')
-  $product.classList.add('card')
-  
-  const $img = document.createElement('img')
-  const img = require(`../../assets/images/${id}.png`)
-  $img.setAttribute('src', img)
+  $product.classList.add('card', 'products__card')
 
-  const $name = document.createElement('p')
-  $name.innerText = name
+  const clickHandler = (e) => addToBasket(product)
 
-  const $priceBar = document.createElement('div')
-  $priceBar.classList.add('price-bar')
+  $product.insertAdjacentHTML('afterbegin', 
+    `
+        <img class="card__image" src="${img}" alt="no image" />
 
-  const $priceValue = document.createElement('span')
-  $priceValue.classList.add('price-value')
-  $priceValue.innerText = price
+        <p class="card__name" >${name}</p>
 
-  const $buttonAdd = document.createElement('button')
-  $buttonAdd.textContent = "+"
-  $buttonAdd.classList.add('add')
+        <div class="card__body">
+          <div class="card__price">${price}</div>
+          <button class="btn card__btn-add" >+</button>
+        </div>
+    `
+    )
 
-  $buttonAdd.onclick = () => addToBasket(product)
+  const $btnAdd = $product.querySelector('.card__btn-add')
+  $btnAdd.addEventListener("click", clickHandler)
 
-  $priceBar.append($priceValue, $buttonAdd)
-  $product.append($img, $name, $priceBar)
-
-  return $product
+  return {
+    append: () => $product,
+    remove: () => {
+      $btnAdd.removeEventListener("click", clickHandler)
+      $product.remove()
+    }
+  }
 }

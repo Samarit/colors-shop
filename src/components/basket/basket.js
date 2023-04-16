@@ -3,7 +3,7 @@ import renderBasket from "./renderBasket";
 
 const $basketWrapper = document.querySelector('.basket-wrapper')
 const $basketContainer = document.querySelector('.basket-container')
-const $basketOpenBtn = document.getElementById('basket-open')
+const $basketOpenBtn = document.getElementById('basket_open')
 const $basketCloseBtn = document.getElementById('basket-close')
 const $basketQuantity = document.querySelector('.basket-quantity .text')
 const $basketClear = document.querySelector('.basket-clear')

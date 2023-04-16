@@ -1,9 +1,9 @@
 @use '_variables.sass' as var
 
-.select-input
+.select__input
   position: relative
 
-  & .text
+  .select__text
     margin-right: 7px
 
   &::after
@@ -12,16 +12,16 @@
     font-size: 75%
     transform: translateY(-1.5px)
 
-  .select-dropdown
+  .select__dropdown
     display: none
 
-    &__option
-      color: var.$color-text
-      width: 280px
-      padding: 1rem 1.5rem
+  .dropdown__option
+    color: var.$color-text
+    width: 280px
+    padding: 1rem 1.5rem
 
-.select-input.open
-  .select-dropdown
+.select__input.select__input_opened
+  .select__dropdown
     display: flex
     flex-direction: column
     position: absolute
@@ -29,17 +29,18 @@
     right: 0
     z-index: 200
 
-    &__option
+    .dropdown__option
       background-color: white
+      text-align: start
 
       &:hover
         background-color: var.$color-active
 
-.select-input.open + .select-shadow
-  position: fixed
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  background-color: rgba(0, 0, 0, 0.5)
-  z-index: 100
+  & + .select__overlay
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: rgba(0, 0, 0, 0.5)
+    z-index: 100
