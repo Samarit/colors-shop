@@ -7,16 +7,24 @@ export default function productBasketCounterTemplate(product) {
   const {id, count} = product
 
   const $counterWrapper = document.createElement('div')
-  const $decrement = document.createElement('button')
-  const $increment = document.createElement('button')
-  const $counter = document.createElement('span')
+  $counterWrapper.classList.add('counter', 'card__counter')
 
-  $decrement.innerText = '-'
-  $increment.innerText = '+'
-  $counter.innerText = count
+  $counterWrapper.insertAdjacentHTML('afterbegin', 
+    `
+      <button class="btn counter__button-decrement">+</button>
+      <span class="counter__value"></span>
+      <button class="btn counter__button-increment">-</button>
+    `
+  )
+
+  const $decrement = $counterWrapper.querySelector('.counter__button-decrement')
+  const $counterValue = $counterWrapper.querySelector('.counter__value')
+  const $increment = $counterWrapper.querySelector('.counter__button-increment')
+
+  $counterValue.textContent = count
 
   $decrement.onclick = (e) => {
-    $counter.innerText --
+    $counterValue.innerText --
     const basketStorage = getStorageData()
     
     basketStorage.forEach((el) => {
@@ -32,7 +40,7 @@ export default function productBasketCounterTemplate(product) {
   }
 
   $increment.onclick = (e) => {
-    $counter.innerText ++
+    $counterValue.innerText ++
     const basketStorage = getStorageData()
 
     basketStorage.forEach((el) => {
@@ -46,10 +54,6 @@ export default function productBasketCounterTemplate(product) {
       }
     })
   }
-
-  $counterWrapper.append($decrement, $counter, $increment)
-
-  $counterWrapper.classList.add('product-counter')
 
   return $counterWrapper
 

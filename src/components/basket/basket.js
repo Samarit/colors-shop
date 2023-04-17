@@ -1,22 +1,22 @@
 import getStorageData from "../../utils/getStorageData";
 import renderBasket from "./renderBasket";
 
-const $basketWrapper = document.querySelector('.basket-wrapper')
-const $basketContainer = document.querySelector('.basket-container')
-const $basketOpenBtn = document.getElementById('basket_open')
+const $basket = document.querySelector('.basket')
+const $basketContainer = document.querySelector('.basket__container')
+const $basketOpenBtn = document.getElementById('basket-open')
 const $basketCloseBtn = document.getElementById('basket-close')
-const $basketQuantity = document.querySelector('.basket-quantity .text')
-const $basketClear = document.querySelector('.basket-clear')
+const $basketQuantity = document.querySelector('.basket__quantity .text')
+const $basketClear = document.querySelector('.basket__clear')
 
 const basketStorage = getStorageData()
 
 renderBasket()
 
-$basketOpenBtn.onclick = () => $basketWrapper.classList.add('open')
-$basketCloseBtn.onclick = () => $basketWrapper.classList.remove('open')
-$basketWrapper.onclick = (e) => {
+$basketOpenBtn.onclick = () => $basket.classList.add('basket_opened')
+$basketCloseBtn.onclick = () => $basket.classList.remove('basket_opened')
+$basket.onclick = (e) => {
   e.stopPropagation()
-  $basketWrapper.classList.remove('open')
+  $basket.classList.remove('basket_opened')
 }
 $basketContainer.onclick = e => e.stopPropagation()
 $basketClear.onclick = () => {

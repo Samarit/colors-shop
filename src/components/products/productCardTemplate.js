@@ -21,7 +21,7 @@ export default function productCardTemplate(product) {
           <button class="btn card__btn-add" >+</button>
         </div>
     `
-    )
+  )
 
   const $btnAdd = $product.querySelector('.card__btn-add')
   $btnAdd.addEventListener("click", clickHandler)

@@ -1,37 +1,34 @@
 import modalOpen from "../modal/modalOpen"
-import deleteFromBasket from "./deleteFromBasket"
 import productBasketCounterTemplate from "./productBasketCounterTemplate"
 
 export default function productBasketTemplate(product) {
 
   const {id, name, price} = product
+  const img = require(`../../assets/images/${id}.png`)
 
   const $product = document.createElement('li')
-  $product.classList.add('card')
-  
-  const $img = document.createElement('img')
-  const img = require(`../../assets/images/${id}.png`)
-  $img.setAttribute('src', img)
+  $product.classList.add('card', 'basket__card')
 
-  const $info = document.createElement('div')
-  $info.classList.add('product-info')
+  $product.insertAdjacentHTML('afterbegin', 
+    `
+        <img class="card__image" src="${img}" alt="no image" />
 
-  const $name = document.createElement('p')
-  $name.innerText = name
+        <div class="card__body">
+          <p class="card__name" >${name}</p>
+          <span class="card__price">${price}</span>
+        </div>
+    `
+  )
 
-  const $priceValue = document.createElement('span')
-  $priceValue.classList.add('price-value')
-  $priceValue.innerText = price
-
+  // Card counter buttons
   const $counterWrapper = productBasketCounterTemplate(product)
 
   const $buttonDelete = document.createElement('button')
-  $buttonDelete.classList.add('basket-button__delete')
+  $buttonDelete.classList.add('card__button-delete')
   $buttonDelete.textContent = '×'
   $buttonDelete.onclick = () => modalOpen(id)
   
-  $product.append($img, $info, $counterWrapper, $buttonDelete)
-  $info.append($name, $priceValue)
+  $product.append( $counterWrapper, $buttonDelete)
 
   return $product
 }

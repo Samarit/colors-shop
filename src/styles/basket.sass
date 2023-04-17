@@ -1,6 +1,6 @@
 @use '_variables.sass' as var
 
-.basket-wrapper
+.basket
   display: none
   position: fixed
   top: 0
@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.5)
   justify-content: flex-end
 
-  .basket-container
+  .basket__container
     display: flex
     flex-direction: column
     justify-content: space-between
@@ -22,19 +22,19 @@
     @include var.media(desktop)
       padding: 2.5rem
 
-    .basket-header
+    .basket__header
       display: flex
       justify-content: space-between
       align-items: center
       margin-bottom: calc( 1.5rem + 5vw )
 
-      .basket-title
+      .basket__title
         font-weight: 600
         font-size: 1.875rem
         display: flex
         align-items: center
 
-      .basket-close
+      .basket__button-close
         display: flex
         justify-content: center
         align-items: center
@@ -42,24 +42,25 @@
         height: calc( 1.5rem + 1.25vw )
         border: 1px solid rgba(0, 0, 0, .1)
         border-radius: 50%
-        font-size: 2rem
+        font-size: calc( 1rem + 0.5vw )
+        color: var.$color-text
 
-    .basket-quantity
+    .basket__quantity
       display: flex
       justify-content: space-between
       font-size: 0.875rem
-      padding-bottom: 10px 0
+      margin-bottom: 10px
 
       .text
         display: flex
         align-items: center
 
-      .basket-clear
+      .basket__clear
         opacity: 40%
         appearance: none
         border: none
 
-    #basket
+    .basket__body
       display: flex
       flex-direction: column
       flex-grow: 1
@@ -70,11 +71,11 @@
         border-top: 1px solid rgba(0, 0, 0, .1)
         padding: 0.75rem 0
 
-        img
+        .card__image
           width: calc( 3rem + 3vw )
           aspect-ratio: 1
 
-        .product-info
+        .card__body
           display: flex
           flex-direction: column
           align-items: flex-start
@@ -86,41 +87,43 @@
             padding: 0.5rem
             font-size: 1rem
 
-          .price-value
+          .card__price
             font-weight: 600
 
             &::after
               content: " ₽"
 
-        .product-counter
+        .card__counter
           display: flex
           justify-content: space-between
           align-items: center
 
-          button
+          .btn
             width: calc(1.25rem + 1.2vw)
             aspect-ratio: 1.67rem
             font-size: calc( 1rem + 0.25vw )
+            color: var.$color-text
 
-          span
+          .counter__value
             width: calc(1.25rem + 1.2vw)
             text-align: center
             font-weight: 600
             font-size: calc( 0.75rem + 0.15vw )
 
-        .basket-button__delete
+        .card__button-delete
           border-radius: 50%
           width: calc( 2rem + 2vw )
           height: calc( 2rem + 2vw )
-          font-size: 1.5rem
+          font-size: calc( 1rem + 0.5vw )
           background-color: white
           margin-left: calc( 0.75rem + 0.15vw )
+          color: var.$color-text
 
-  .basket-footer
+  .basket__footer
     display: flex
     justify-content: space-between
 
-    .basket-total
+    .basket__total
       font-weight: 600
       font-size: 1.25rem
       @include var.media(tablet)
@@ -140,11 +143,12 @@
         @include var.media(tablet)
           font-size: 1.875rem
 
-    .basket-checkout
+    .basket__checkout
       width: calc( 9rem + 4.5vw )
       font-weight: 600
       aspect-ratio: 4.25
       background-color: var.$color-active
+      color: var.$color-text
 
-.basket-wrapper.open
+.basket.basket_opened
   display: flex

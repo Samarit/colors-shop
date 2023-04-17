@@ -1,15 +1,15 @@
-div.basket-wrapper
-  div.basket-container
-    div.basket-header
-      div.basket-title Корзина
-      button.basket-close#basket-close(data-close="true") × 
+div.basket
+  div.basket__container
+    div.basket__header
+      div.basket__title Корзина
+      button.btn.basket__button-close#basket-close(data-close="true") × 
 
-    div.basket-quantity
+    div.basket__quantity
       span.text 
-      button.basket-clear(data-clear="true") ОЧИСТИТЬ СПИСОК
+      button.basket__clear(data-clear="true") ОЧИСТИТЬ СПИСОК
 
-    div#basket
+    div.basket__body#basket
 
-    div.basket-footer
-      div.basket-total#total
-      button.basket-checkout ОФОРМИТЬ ЗАКАЗ
+    div.basket__footer
+      div.basket__total#total
+      button.basket__checkout ОФОРМИТЬ ЗАКАЗ
