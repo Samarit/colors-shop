@@ -8,7 +8,8 @@ export default class ProductsPage {
     this.allProducts = productsData // Array with all products data
     this.currentProducts = productsData // Rendering data
     
-    this.element = null // DOM element where products render to
+    this.container = null // DOM element where products render to
+    this.totalDisplay = null // DOM element where total value displayed
     this.listenerRemovers = [] // Array of remove methods of each product card after sort/filter
 
     this.order = '' // sorting order state
@@ -22,7 +23,9 @@ export default class ProductsPage {
       throw new Error('Provided element is not a valid DOM element')
     }
 
-    this.element = element
+    this.container = element.querySelector('.products__container')
+    this.totalDisplay = element.querySelector('.products__total')
+
     this.render()
   }
 
@@ -38,7 +41,7 @@ export default class ProductsPage {
 
   clear() {
     this.listenerRemovers.map( remover => remover())
-    this.element.innerHTML = ''
+    this.container.innerHTML = ''
     this.listenerRemovers = []
   }
 
@@ -50,11 +53,13 @@ export default class ProductsPage {
 
       const $productCard = productCardTemplate(product).append()
 
-      this.element.appendChild($productCard)
+      this.container.appendChild($productCard)
 
       this.listenerRemovers.push($productCard.remove.bind($productCard))
     
     }) 
+
+    this.totalDisplay.textContent = this.currentProducts.length
   }
 }
 
